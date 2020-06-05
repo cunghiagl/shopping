@@ -7,6 +7,9 @@ use Illuminate\Support\Facades\Auth;
 class AdminController extends Controller
 {
     public function loginAdmin(){
+        if(Auth::check()){
+            return redirect()->to('home');
+        }
         return view('login');
     }
     public function postloginAdmin(Request $req){
